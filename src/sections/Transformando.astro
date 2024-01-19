@@ -1,0 +1,33 @@
+---
+import Button from '../components/Button.astro';
+---
+
+<section class="flex flex-col items-center bg-[url('https://klevisoft.com/wp-content/uploads/2024/01/Diseno-sin-titulo.png')] bg-bottom">
+    <div class="bg-clip-border backdrop-blur-lg">
+        <div class="px-[23vmax] text-center mx-10 my-20 text-dark-blue font-bold space-y-10">
+            <div>
+                <h1 class="text-6xl md:text-8xl">
+                    <strong>Transformando Ideas en Soluciones Digitales</strong>
+                </h1>
+            </div>
+            
+            <div>
+                <p class="text-left text-xl">
+                    Somos una empresa desarrolladora de software enfocados en la gestion de procesos para empresas, realizamos softwares a la medida. Conoce nuestro ERP Agroeasy enfocado al sector agricola.
+                </p>
+            </div>
+            <div class="space-x-10 font-normal pt-3">
+                <Button
+                    title="Conocenos"
+                    style="rounded-lg text-xl px-8 py-5 text-center text-cyan hover:text-white border border-cyan hover:bg-cyan focus:ring-1 focus:outline-none focus:ring-cyan"
+                    href="/nosotros"
+                />
+                <Button
+                    title="Agroeasy"
+                    style="rounded-lg text-xl px-8 py-5 text-center text-green hover:text-white border border-green hover:bg-green focus:ring-1 focus:outline-none focus:ring-green"
+                    href="/agroeasy"
+                />
+            </div>
+        </div>
+    </div>
+</section>

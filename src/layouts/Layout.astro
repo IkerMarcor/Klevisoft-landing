@@ -1,0 +1,122 @@
+---
+import Option from '../components/Menu.astro';
+import Button from '../components/Button.astro'
+import Lupa from '../icons/lupa.astro';
+
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header class="py-[2.125rem] bg-blue shadow-xl">
+			<nav class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+				<div class="relative flex items-center ">
+					<a href="/" class="hover:opacity-75 transition-opacity duration-300">
+						<img class="w-[20rem]" src="https://klevisoft.com/wp-content/uploads/2023/11/klevisoft_logo_sinfondo.png" alt="Klevisoft logo">
+					</a>
+					<div class="pt-10 ml-auto hidden lg:flex lg:items-center">
+						<Option
+							href="/"
+							title="Inicio"
+						/>
+						<Option
+							href="/nosotros"
+							title="Nosotros"
+						/>
+						<Option
+							href="/agroeasy"
+							title="Agroeasy"
+						/>
+						<Option
+							href="/klevishop"
+							title="KleviShop"
+						/>
+						<Button 
+							title="Contáctanos" 
+							style="list-none rounded-lg px-8 py-5 text-xl bg-gray text-dark-blue hover:bg-cyan hover:text-white transition-colors cursor-pointer duration-300" 
+							href="/contactanos"/>
+						<Lupa/>
+					</div>
+					<!-- TODO: Menu para tabletas/telefonos -->
+					<!-- <div class="pt-3 ml-auto lg:hidden">
+						<a href="/" class="text-secondary hidden sm:flex sm:items-center mx-3">
+							<Menu/>
+							<span>Menu</span>
+						<a/>
+					</div> -->
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<slot/>
+		</main>
+
+		<footer class="inset-x-0 bottom-0 bg-dark-blue shadow">
+			<div class="inset-x-0 bottom-0 w-full max-w-screen-xl mx-auto px-4 md:py-8">
+				<div class="sm:flex sm:items-center sm:justify-between">
+					<a href="#" class="flex items-center mb-4 sm:mb-0">
+						<img src="https://klevisoft.com/wp-content/uploads/2023/11/klevisoft_logo_sinfondo.png" class="h-10" alt="Klevisoft logo" />
+					</a>
+					<ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 dark:text-gray-400">
+						<li>
+							<a href="#" class="hover:underline me-4 md:me-6">About</a>
+						</li>
+						<li>
+							<a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+						</li>
+						<li>
+							<a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+						</li>
+						<li>
+							<a href="#" class="hover:underline">Contact</a>
+						</li>
+					</ul>
+				</div>
+				<hr class="my-6 border-white sm:mx-auto lg:my-4" />
+				<span class="block text-sm text-white sm:text-center">
+					KLEVISOFT 2024 | © Copyright. Todos lo derechos reservados.
+				</span>
+			</div>
+		</footer>
+
+	</body>
+</html>
+
+
+<style is:global>
+	
+	html {
+		font-family: system-ui, sans-serif;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	::selection {
+		background: #333333;
+		color: white;
+	}
+</style>

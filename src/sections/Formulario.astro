@@ -1,0 +1,37 @@
+---
+import Button from '../components/Button.astro'
+---
+<section class="px-[10vmax] flex flex-col lg:flex-row items-center justify-center space-x-10">
+    <div class="size-6/12 space-y-8 m-10">
+        <h1 class="text-6xl font-bold text-center text-dark-blue">¡Hablemos de Tecnología!</h1>
+        <p class="text-3xl">Nuestro equipo de expertos está listo para escuchar tus ideas, responder tus preguntas y ofrecerte soluciones innovadoras. Contáctanos hoy y comienza a transformar tu visión en realidad.</p>
+    </div>
+    <div class="size-6/12 py-10">
+        <form class="max-w-auto space-y-8">
+            <div>
+                <label for="large-input" class="block mb-2 text-sm font-medium text-dark-blue">Nombre</label>
+                <input type="text" id="large-input" class="block w-full p-4 text-dark-blue rounded-lg bg-light-gray sm:text-md focus:outline-none focus:border-cyan focus:ring-cyan focus:ring-2">
+            </div>
+            <div>
+                <label for="large-input" class="block mb-2 text-sm font-medium text-dark-blue">Correo electrónico</label>
+                <input type="text" id="large-input" class="block w-full p-4 text-dark-blue rounded-lg bg-light-gray sm:text-md focus:outline-none focus:border-cyan focus:ring-cyan focus:ring-2">
+            </div>
+            <div>
+                <label for="large-input" class="block mb-2 text-sm font-medium text-dark-blue">Asunto</label>
+                <input type="text" id="large-input" class="block w-full p-4 text-dark-blue rounded-lg bg-light-gray sm:text-md focus:outline-none focus:border-cyan focus:ring-cyan focus:ring-2">
+            </div>
+            <div>
+                <label for="large-input" class="block mb-2 text-sm font-medium text-dark-blue">Mensaje (opcional)</label>
+                <textarea id="large-input" class=" resize-none block w-full p-4 h-[250px] text-dark-blue rounded-lg bg-light-gray sm:text-md focus:outline-none focus:border-cyan focus:ring-cyan focus:ring-2"/>
+            </div>
+            <div class="text-center py-5">
+                <Button
+                title="Enviar"
+                style="rounded-lg text-xl px-8 py-5 text-white bg-dark-cyan hover:bg-cyan focus:ring-1 focus:outline-none focus:ring-cyan"
+                href="#"
+                />
+            </div>
+        </form>
+    </div>
+</section>
+  
