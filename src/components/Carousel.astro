@@ -1,8 +1,7 @@
-<div id="y-axis" class="the-height-section">
-  <div class="sticky-div">
+<div id="y-axis">
+  <div id="sticky-div">
     <h1 class="text-6xl font-bold text-center">Proyectos</h1>
-    <div class="hidden-mask">
-      <div id="x-axis" class="relative w-full the-width-section">
+      <div id="x-axis" class="relative w-full">
         <div id="content" class="grid grid-flow-col auto-cols-[21%] gap-3 p-3 snap-x">
             <div class="elemento">
               <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" class="rounded-box" />
@@ -61,44 +60,22 @@
               <p>titulo7</p>
             </div>
         </div>
-      </div>
     </div>
   </div>
 </div>
 
 <style>
 
-/* #x-axis {
-  transform: translateX(-200vh);
-} */
-
-.the-height-section {
-  position: relative;
-  height: 400vh;
-  justify-content: center;
-  align-items: center;
-  background-color: #ff0000;  
+#y-axis {
+  background-color: #ff0000;
 }
 
-.sticky-div {
-  position: sticky;
-  top: 0px;
-  overflow: hidden;
-  width: 100%;
+#sticky-div {
   height: 100vh;
-  margin: 0px auto;
   background-color: hsla(0, 0%, 100%, 0.51);
 }
 
-.hidden-mask {
-  position: relative;
-  z-index: 200;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-
-.the-width-section {
+#x-axis {
   display: flex;
   height: 100%;
   flex-wrap: wrap;
@@ -130,18 +107,30 @@
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
   gsap.registerPlugin(ScrollTrigger);
-  let sections = gsap.utils.toArray(".elemento");
+  const elementos = document.querySelector("#content") as HTMLElement;
 
-  gsap.to(sections, {
-    xPercent:  -100 * (sections.length - 1),
-    ease: "none", // <-- IMPORTANT!
-    scrollTrigger: {
-      trigger: "#x-axis",
-      start: "top top",
-      end: "+=3000",
-      pin: true,
-      scrub: 1,
-    }
+  function getScrollAmount() {
+    const elmtWidth = elementos.scrollWidth;
+    return -(elmtWidth - elementos?.offsetWidth);
+  }
+
+  const Yaxis = document.querySelector("#y-axis") as HTMLElement;
+  console.log(Yaxis.scrollHeight);
+  
+  const tween = gsap.to("#x-axis", {
+    x: getScrollAmount,
+    ease: "none",
+    duration: 3,
+  });
+
+  ScrollTrigger.create({
+    trigger: "#y-axis",
+    start: "top",
+    end: "2500px", // <-- Aqui es donde se cambia la velocidad.
+    pin: true,
+    animation: tween,
+    // markers: true,
+    scrub: 1,
   });
 
 </script>
