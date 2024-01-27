@@ -113,9 +113,6 @@
     const elmtWidth = elementos.scrollWidth;
     return -(elmtWidth - elementos?.offsetWidth);
   }
-
-  const Yaxis = document.querySelector("#y-axis") as HTMLElement;
-  console.log(Yaxis.scrollHeight);
   
   const tween = gsap.to("#x-axis", {
     x: getScrollAmount,
