@@ -1,12 +1,12 @@
 ---
 import Button from '../components/Button.astro'
 ---
-<section class="px-[10vmax] flex flex-col lg:flex-row items-center justify-center space-x-10">
-    <div class="size-6/12 space-y-8 m-10">
-        <h1 class="text-6xl font-bold text-center text-dark-blue">¡Hablemos de Tecnología!</h1>
+<section class="flex flex-col lg:flex-row items-center justify-center space-x-10">
+    <div class="size-6/12 space-y-8 mt-[5rem] lg:ml-[5rem] lg:my-[5rem]">
+        <h1 class="text-4xl sm:text-6xl font-bold text-center text-dark-blue">¡Hablemos de Tecnología!</h1>
         <p class="text-3xl">Nuestro equipo de expertos está listo para escuchar tus ideas, responder tus preguntas y ofrecerte soluciones innovadoras. Contáctanos hoy y comienza a transformar tu visión en realidad.</p>
     </div>
-    <div class="size-6/12 py-10">
+    <div id="formulario" class="size-6/12">
         <form class="max-w-auto space-y-8">
             <div>
                 <label for="large-input" class="block mb-2 text-sm font-medium text-dark-blue">Nombre</label>
@@ -35,3 +35,8 @@ import Button from '../components/Button.astro'
     </div>
 </section>
   
+<style>
+    #formulario {
+        margin: 5rem;
+    }
+</style>

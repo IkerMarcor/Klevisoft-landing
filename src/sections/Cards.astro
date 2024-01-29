@@ -1,4 +1,4 @@
-<section id="card-section" class="px-[10vmax] flex flex-col lg:flex-row flex-nowrap items-center justify-center bg-gradient-to-r from-cyan to-blue">
+<section id="card-section" class="flex flex-col lg:flex-row flex-nowrap items-center justify-center bg-gradient-to-r from-cyan to-blue">
     <div class="text-center my-10 mx-5 space-y-10">
         <div id="card" class="block max-w-sm px-5 py-11 bg-white rounded-lg shadow-lg hover:shadow-2xl ease-in-out duration-300">
             <div class="mx-auto mb-10 size-6/12 text-dark-blue">
@@ -52,11 +52,12 @@
         start: "top center",
         onEnter: (elements) => {
             gsap.to(elements, {
+                duration: 0.1,
                 y: 0,
                 opacity: 1,
                 ease: "power4.out",
                 stagger: 0.2, grid: "auto",});
-            console.log(elements.length, "elements entered");
+            // console.log(elements.length, "elements entered");
         },
   });
 </script>
