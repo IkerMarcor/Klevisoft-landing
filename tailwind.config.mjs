@@ -2,7 +2,7 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
 			colors: {
 				'dark-blue': '#13151a',
 				'blue': '#0D1C3A',
@@ -10,9 +10,12 @@ export default {
 				'light-gray': '#e5e7eb',
 				'cyan':'#40a6ef',
 				'dark-cyan':'#2d8fd5',
-				'white':'#ffffff',
 				'green': '#16C55E',
+			},
+			backgroundImage: {
+				'klevi-1': "url('/src/assets/images/background-1.png')",
 			}
+		}
 	},
 	plugins: [],
 }
