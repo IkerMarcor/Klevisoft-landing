@@ -5,42 +5,49 @@ import About from '../assets/svg/about.astro'
 import Agroeasy from '../assets/svg/agroeasy.astro'
 import Shop from '../assets/svg/shop.astro'
 import Mail from '../assets/svg/mail.astro'
+
+interface Props {
+    id: string;
+    style: string;
+}
+
+const { id, style } = Astro.props;
 ---
 
-<aside id="default-sidebar" class="fixed top-0 right-0 z-40 w-64 h-screen transition-transform translate-x-0 lg:translate-x-full" aria-label="Sidebar">
+<aside id={id} class={style} aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-blue">
-        <div>
-            <a href="#" class="flex flex-row-reverse text-gray rounded-lg group">
+        <div class="flex justify-end">
+            <button type="button" id="exit" class="hover:text-cyan text-gray rounded-lg group">
                 <Cross/>
-            </a>
+            </button>
         </div>
         <ul class="py-10 space-y-2 font-medium">
         <li>
-            <a href="/" class="flex flex-row-reverse items-center p-2 text-gray rounded-lg group">
+            <a href="/" class="flex flex-row-reverse items-center p-2 hover:text-cyan text-gray rounded-lg group">
                 <Home/>
                 <span class="mr-3">Inicio</span>
             </a>
         </li>
         <li>
-            <a href="/nosotros" class="flex flex-row-reverse items-center p-2 text-gray rounded-lg group">
+            <a href="/nosotros" class="flex flex-row-reverse items-center p-2 hover:text-cyan text-gray rounded-lg group">
                 <About/>
                 <span class="mr-3">Nosotros</span>
             </a>
         </li>
         <li>			
-            <a href="/agroeasy" class="flex flex-row-reverse items-center p-2 text-gray rounded-lg group">
+            <a href="/agroeasy" class="flex flex-row-reverse items-center p-2 hover:text-cyan text-gray rounded-lg group">
                 <Agroeasy/>
                 <span class="mr-3">Agroeasy</span>
             </a>
         </li>
         <li>
-            <a href="/klevishop" class="flex flex-row-reverse items-center p-2 text-gray rounded-lg group">
+            <a href="/klevishop" class="flex flex-row-reverse items-center p-2 hover:text-cyan text-gray rounded-lg group">
                 <Shop/>
                 <span class="mr-3">KleviShop</span>
             </a>
         </li>
         <li>
-            <a href="/contactanos" class="flex flex-row-reverse items-center p-2 text-gray rounded-lg group">
+            <a href="/contactanos" class="flex flex-row-reverse items-center p-2 hover:text-cyan text-gray rounded-lg group">
                 <Mail/>
                 <span class="mr-3">Contáctanos</span>
             </a>
@@ -48,3 +55,23 @@ import Mail from '../assets/svg/mail.astro'
     </ul>
     </div>
 </aside>
+
+<script>
+    // Boton para cerrar el sidebar
+    const sidebar = document.getElementById('default-sidebar') as HTMLElement;
+    const exit = document.getElementById('exit') as HTMLButtonElement;
+    exit.addEventListener('click', (e) => {
+        e.preventDefault();
+        sidebar.classList.remove('translate-x-0');
+        sidebar.classList.add('translate-x-full');
+    });
+
+    // Cerrar el sidebar al hacer click en un enlace
+    const anchors = sidebar.getElementsByTagName('a') as HTMLCollectionOf<HTMLAnchorElement>;
+    for (const link of anchors) {
+        link.addEventListener('click', () => {
+            sidebar.classList.remove('translate-x-0');
+            sidebar.classList.add('translate-x-full');
+        });
+    };
+</script>
