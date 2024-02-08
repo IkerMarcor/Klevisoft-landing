@@ -66,28 +66,32 @@ const { title } = Astro.props;
 		</main>
 
 		<footer class="inset-x-0 bottom-0 bg-dark-blue shadow">
-			<div class="inset-x-0 bottom-0 w-full max-w-screen-xl mx-auto px-4 md:py-8">
-				<div class="sm:flex sm:items-center sm:justify-between">
-					<a href="#" class="flex items-center py-4 sm:py-0">
-						<img class="text-white h-10" src={Logo.src} alt="Klevisoft logo" />
-					</a>
-					<ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 dark:text-gray-400">
+			<div class="text-white inset-x-0 bottom-0 w-full max-w-screen-xl mx-auto px-4 md:py-8">
+				<div class="justify-items-center sm:flex sm:items-center sm:justify-between">
+					<div class="mx-[200px] py-2 sm:p-0 sm:m-0 sm:size-4/12 sm:pr-[15vmin]">
+						<a href="/">
+							<img class="size-full flex place-self-center" src={Logo.src} alt="Klevisoft logo"/>
+						</a>
+					</div>
+					<ul class="sm:size-4/12 flex flex-col text-left items-center mb-6 text-sm font-medium sm:mb-0">
 						<li>
-							<a href="#" class="hover:underline me-4 md:me-6">About</a>
+							<p class="hover:underline">Contacto</p>
 						</li>
 						<li>
-							<a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+							<p class="hover:underline">(+52) 662-300-7312</p>
 						</li>
 						<li>
-							<a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-						</li>
-						<li>
-							<a href="#" class="hover:underline">Contact</a>
+							<p class="hover:underline">klevisoft@gmail.com</p>
 						</li>
 					</ul>
+					<p class="px-[150px] sm:p-0 text-center sm:text-end sm:size-4/12">
+						Tu Visión, Nuestra Realidad Digital,
+						Empoderamos Negocios a través del 
+						Desarrollo Tecnológico.
+					</p>
 				</div>
 				<hr class="my-6 border-white sm:mx-auto lg:my-4" />
-				<span class="block text-sm text-white sm:text-center">
+				<span class="block text-sm text-center">
 					KLEVISOFT 2024 | © Copyright. Todos lo derechos reservados.
 				</span>
 			</div>
