@@ -1,0 +1,21 @@
+---
+interface Props {
+	title: string;
+    style: string;
+	bg: string;
+}
+
+const { title, style, bg } = Astro.props;
+---
+
+<section class=`${bg} bg-fixed w-full bg-cover bg-center bg-no-repeat`>
+    <div class="font-bold backdrop-blur-[2px] bg-blue/30 text-6xl flex justify-center">
+        <h1 class={style}>{title}</h1>
+    </div>
+</section>
+
+<style>
+    h1 {
+        text-shadow: 1px 1px 4px black, 0 0 1em black, 0 0 0.2em black;
+    }
+</style>

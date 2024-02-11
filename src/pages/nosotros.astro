@@ -1,15 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Scroll from '../components/Scroll.astro';
+import Background from '../components/Background.astro';
+import Section1 from '../components/Section-1.astro';
+import Ingenieros from '../sections/Ingenieros.astro';
+import Mision from '../sections/Mision.astro';
 ---
 
 <Layout title="Nosotros – Klevisoft">
-  <section class="flex items-center h-full p-16">
-    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-      <div class="max-w-md text-center">
-        <h2 class="mb-8 font-bold text-9xl">
-          <span class="text-primary dark:text-gray-300">Pagina de nostros</span>
-        </h2>
-      </div>
-    </div>
-  </section>
+  <Scroll/>
+  <Background
+    title="Cada linea de código, un paso hacia la excelencia."
+    style="text-white text-center px-2 py-[30vh]"
+    bg="bg-klevi-2" 
+  />
+  <Ingenieros/>
+  <Mision/>
+  <Section1
+    bg="bg-gradient-to-r from-cyan to-blue text-white"
+    style="shadow-md rounded-lg px-8 py-5 text-xl bg-white text-dark-blue hover:border hover:border-white hover:bg-cyan hover:text-white hover:shadow-lg transition-colors cursor-pointer duration-300"
+    href="#"
+    Atitle="Conoce nuestro equipo de ingenieros y desarrolladores"
+    Btitle='Ingenieros Klevisoft'
+  />
 </Layout>

@@ -1,0 +1,31 @@
+---
+import Button from './Button.astro'
+
+interface Props {
+	Atitle: string;
+    Btitle: string;
+	bg: string;
+    style: string;
+    href: string;
+}
+
+const { bg, Atitle, Btitle, style, href } = Astro.props;
+---
+
+<section class={bg}>
+    <div class="py-[200px] flex flex-col items-center">
+        <div class="m-20">
+            <h1 class="text-5xl xl:text-7xl font-bold tracking-wide underline">
+                { Atitle }
+            </h1>
+        </div>
+        
+        <div class="pt-5">
+            <Button
+                title={ Btitle }
+                style={ style }
+                href={ href }
+		    />
+        </div>
+</div>
+</section>

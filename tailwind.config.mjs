@@ -14,6 +14,9 @@ export default {
 			},
 			backgroundImage: {
 				'klevi-1': "url('/src/assets/images/background-1.png')",
+				'klevi-2': "url('/src/assets/images/IMG_2824-scaled.jpg')",
+				'klevishop': "url('/src/assets/images/fondo_klevishop.png')",
+				'agroeasy': "url('/src/assets/images/packingaggr-scaled.jpg')",
 			}
 		}
 	},

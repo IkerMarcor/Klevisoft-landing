@@ -1,15 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Background from '../assets/videos/Worldwebmsjs.mp4';
 ---
 
 <Layout title="Contáctanos – Klevisoft">
   <section class="flex items-center bg-gradient-to-r from-cyan to-blue">
-    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-      <div class="max-w-md text-left">
-        <h2 class="mb-8 font-bold text-5xl">
-          <span class="text-white">Transformando Ideas en Soluciones Digitales</span>
-        </h2>
-      </div>
-    </div>
+    <video src={Background} style="width: 1920px; height: 1080px;" preload="true" controls="" autoplay="" transition:persist>
+      <source src={Background} type="video/mp4"/>
+    </video>
   </section>
 </Layout>
