@@ -1,104 +1,44 @@
-<div id="y-axis">
-  <div id="sticky-div" class="overflow-hidden">
-    <h1 class="text-6xl font-bold text-center">Proyectos</h1>
-      <div id="x-axis" class="relative w-full">
-        <div id="content" class="grid grid-flow-col auto-cols-[21%] gap-3 p-3 snap-x">
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" class="rounded-box" />
-              <p>titulo1</p>
-            </div> 
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" class="rounded-box" />
-              <p>titulo2</p>
-            </div> 
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg" class="rounded-box" />
-              <p>titulo3</p>
-            </div> 
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg" class="rounded-box" />
-              <p>titulo4</p>
-            </div> 
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg" class="rounded-box" />
-              <p>titulo5</p>
-            </div> 
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg" class="rounded-box" />
-              <p>titulo6</p>
-            </div> 
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg" class="rounded-box" />
-              <p>titulo7</p>
-            </div>
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" class="rounded-box" />
-              <p>titulo1</p>
-            </div> 
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" class="rounded-box" />
-              <p>titulo2</p>
-            </div> 
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg" class="rounded-box" />
-              <p>titulo3</p>
-            </div> 
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg" class="rounded-box" />
-              <p>titulo4</p>
-            </div> 
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg" class="rounded-box" />
-              <p>titulo5</p>
-            </div> 
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg" class="rounded-box" />
-              <p>titulo6</p>
-            </div> 
-            <div class="elemento">
-              <img src="https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg" class="rounded-box" />
-              <p>titulo7</p>
-            </div>
+---
+import { getCollection } from 'astro:content';
+import TeamMember from './TeamMember.astro';
+
+interface Props {
+  tipo: String;
+}
+
+const ceo = await getCollection('ceo');
+const ing = await getCollection('ingenieros');
+const {tipo} = Astro.props;
+---
+{ tipo === 'ceo' && 
+<div id="y-axis-1">
+  <div id="sticky-div" class="overflow-hidden grid justify-self-center">
+    <h1 class="text-6xl font-bold text-center m-8">Directores (CEO)</h1>
+      <div id="x-axis-1" class="relative w-full">
+        <div id="ceo" class="grid grid-flow-col auto-cols-[21%] gap-3 p-3 snap-x">
+          {ceo.map((tm) => <TeamMember team={tm}/>)}
         </div>
     </div>
   </div>
 </div>
-
-<style>
-
-#y-axis {
-  background-color: #ff0000;
+}
+{ tipo === 'ing' && 
+<div id="y-axis-2">
+  <div id="sticky-div" class="overflow-hidden grid justify-self-center">
+    <h1 class="text-6xl font-bold text-center m-8">Ingenieros de Software</h1>
+      <div id="x-axis-2" class="relative w-full">
+        <div id="ingenieros" class="grid grid-flow-col auto-cols-[21%] gap-3 p-3 snap-x">
+          {ing.map((tm) => <TeamMember team={tm}/>)}
+        </div>
+    </div>
+  </div>
+</div>
 }
 
+<style>
 #sticky-div {
   height: 100vh;
   background-color: hsla(0, 0%, 100%, 0.51);
-}
-
-#x-axis {
-  display: flex;
-  height: 100%;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.elemento {
-  scroll-snap-align: start;
-  display: grid;
-  gap: 2rem;
-  grid-template-rows: min-content;
-  padding:2rem;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  cursor: pointer;
-}
-
-.elemento > img {
-  inline-size: 100%;
-  aspect-ratio: 16 / 12;
-  object-fit: cover;
 }
 </style>
 
@@ -107,27 +47,46 @@
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
   gsap.registerPlugin(ScrollTrigger);
-  const elementos = document.querySelector("#content") as HTMLElement;
+  const ceo = document.querySelector("#ceo") as HTMLElement;
+  const ingenieros = document.querySelector("#ingenieros") as HTMLElement;
 
-  function getScrollAmount() {
-    const elmtWidth = elementos.scrollWidth;
-    return -(elmtWidth - elementos?.offsetWidth);
+  //Scroll offset amount for the x-axis
+  function getScrollAmount(elmt: HTMLElement) {
+    const elmtWidth = elmt.scrollWidth;
+    return -(elmtWidth - elmt?.offsetWidth);
   }
   
-  const tween = gsap.to("#x-axis", {
-    x: getScrollAmount,
+  const tween1 = gsap.to("#x-axis-1", {
+    x: getScrollAmount(ceo),
     ease: "none",
     duration: 3,
   });
 
+  const tween2 = gsap.to("#x-axis-2", {
+    x: getScrollAmount(ingenieros),
+    ease: "none",
+    duration: 3,
+  });
+
+  //CEO
   ScrollTrigger.create({
-    trigger: "#y-axis",
+    trigger: "#y-axis-1",
     start: "top",
-    end: "2500px", // <-- Aqui es donde se cambia la velocidad.
+    end: "1000px", // <-- Aqui es donde se cambia la velocidad.
     pin: true,
-    animation: tween,
+    animation: tween1,
     // markers: true,
     scrub: 1,
   });
 
+  //INGENIEROS
+  ScrollTrigger.create({
+    trigger: "#y-axis-2",
+    start: "top",
+    end: "3000px", // <-- Aqui es donde se cambia la velocidad.
+    pin: true,
+    animation: tween2,
+    // markers: true,
+    scrub: 1,
+  });
 </script>

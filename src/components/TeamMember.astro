@@ -1,0 +1,25 @@
+---
+const {team} = Astro.props;
+const {name, role, picture} = team.data;
+---
+
+<div class="elemento bg-blue">
+    <img src={picture.src} class="rounded-box object-cover aspect-[16/12] border border-white rounded-lg" />
+    <p class="text-lg font-bold text-white">{name}</p>
+    <p class="text-gray">{role}</p>
+</div>
+
+<style>
+.elemento {
+  scroll-snap-align: start;
+  display: grid;
+  gap: 2rem;
+  grid-template-rows: min-content;
+  padding:2rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+</style>
