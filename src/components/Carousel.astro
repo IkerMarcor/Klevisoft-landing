@@ -12,10 +12,10 @@ const {tipo} = Astro.props;
 ---
 { tipo === 'ceo' && 
 <div id="y-axis-1">
-  <div id="sticky-div" class="overflow-hidden grid justify-self-center">
-    <h1 class="text-6xl font-bold text-center m-8">Directores (CEO)</h1>
+  <div id="sticky-div" class="overflow-hidden">
+    <h1 class="text-6xl font-bold text-center m-10 md:my-[12%]">Directores (CEO)</h1>
       <div id="x-axis-1" class="relative w-full">
-        <div id="ceo" class="grid grid-flow-col auto-cols-[21%] gap-3 p-3 snap-x">
+        <div id="ceo" class="w-[250%] md:w-[100%] grid grid-flow-col auto-cols-[21%] gap-3 p-3 snap-x">
           {ceo.map((tm) => <TeamMember team={tm}/>)}
         </div>
     </div>
@@ -24,10 +24,10 @@ const {tipo} = Astro.props;
 }
 { tipo === 'ing' && 
 <div id="y-axis-2">
-  <div id="sticky-div" class="overflow-hidden grid justify-self-center">
-    <h1 class="text-6xl font-bold text-center m-8">Ingenieros de Software</h1>
+  <div id="sticky-div" class="overflow-hidden">
+    <h1 class="text-6xl font-bold text-center m-10 md:my-[12%]">Ingenieros de Software</h1>
       <div id="x-axis-2" class="relative w-full">
-        <div id="ingenieros" class="grid grid-flow-col auto-cols-[21%] gap-3 p-3 snap-x">
+        <div id="ingenieros" class="w-[250%] md:w-[100%] grid grid-flow-col auto-cols-[21%] gap-3 p-3 snap-x">
           {ing.map((tm) => <TeamMember team={tm}/>)}
         </div>
     </div>
@@ -38,6 +38,7 @@ const {tipo} = Astro.props;
 <style>
 #sticky-div {
   height: 100vh;
+  width: 100%;
   background-color: hsla(0, 0%, 100%, 0.51);
 }
 </style>
@@ -52,8 +53,14 @@ const {tipo} = Astro.props;
 
   //Scroll offset amount for the x-axis
   function getScrollAmount(elmt: HTMLElement) {
+    //get the width of the element in percentage
+    //1.get parent element
+    const  parentWidth = elmt.offsetParent as HTMLElement;
+    //2.get the width of the parent element and the width of the child element and divide them
+    const percent = (elmt.offsetWidth/parentWidth.offsetWidth);
+
     const elmtWidth = elmt.scrollWidth;
-    return -(elmtWidth - elmt?.offsetWidth);
+    return -(elmtWidth - elmt.offsetWidth / percent);
   }
   
   const tween1 = gsap.to("#x-axis-1", {
