@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Background from '../components/Background.astro';
+import Computadora from '../assets/images/comp_esc1.jpg'
+import Impresora from '../assets/images/imp_term1.jpg'
+import Rollos from '../assets/images/etiq_grand.jpg'
+import Escaner from '../assets/images/lect_barr1.jpg'
 ---
 
 <Layout title="KleviShop – Klevisoft">
@@ -9,7 +13,30 @@ import Background from '../components/Background.astro';
     style="text-white text-center px-2 py-[30vh]"
     bg="bg-klevishop" 
   />
-  <div class="bg-blue p-[100px]">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas vero fuga beatae corrupti voluptatibus illum dolore doloribus fugiat reprehenderit magni quam, atque ullam accusantium modi laboriosam repudiandae amet nesciunt cum?</p>
+  <div class="bg-blue p-10">
   </div>
+  <section>
+    <div class="container justify-evenly mx-auto my-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 flex space-x-5 text-center">
+       <div>
+        <img src={Computadora.src} class="hover:-translate-y-6 duration-500 ease-in-out rounded-box object-cover aspect-[16/12] shadow-xl rounded-lg my-5" />
+        <p class="text-dark-blue text-3xl font-bold">Computadoras</p>
+        <p class="text-gray">Computadoras de escritorio y portatiles, completas y en partes</p>
+       </div>
+       <div>
+        <img src={Impresora.src} class="hover:-translate-y-6 duration-500 ease-in-out rounded-box object-cover aspect-[16/12] shadow-xl rounded-lg my-5" />
+        <p class="text-dark-blue text-3xl font-bold">Impresoras termicas</p>
+        <p class="text-gray">Impresoras termicas de etiquetas de codigo de barras</p>
+       </div>
+       <div>
+        <img src={Rollos.src} class="hover:-translate-y-6 duration-500 ease-in-out rounded-box object-cover aspect-[16/12] shadow-xl rounded-lg my-5" />
+        <p class="text-dark-blue text-3xl font-bold">Rollos de etiqueta termica</p>
+        <p class="text-gray">Etiqueta termica directa sin ribbon</p>
+       </div>
+       <div>
+        <img src={Escaner.src} class="hover:-translate-y-6 duration-500 ease-in-out rounded-box object-cover aspect-[16/12] shadow-xl rounded-lg my-5" />
+        <p class="text-dark-blue text-3xl font-bold">Escaner de codigo de barras</p>
+        <p class="text-gray">Lector de codigo de barras inalambrico, pistola de escaner de codigo QR</p>
+       </div>
+    </div>
+  </section>
 </Layout>

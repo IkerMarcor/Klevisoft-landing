@@ -13,7 +13,7 @@ const {tipo} = Astro.props;
 { tipo === 'ceo' && 
 <div id="y-axis-1">
   <div id="sticky-div" class="overflow-hidden">
-    <h1 class="text-6xl font-bold text-center m-10 md:my-[12%]">Directores (CEO)</h1>
+    <h1 class="text-6xl font-bold text-center m-10">Directores (CEO)</h1>
       <div id="x-axis-1" class="relative w-full">
         <div id="ceo" class="w-[250%] md:w-[100%] grid grid-flow-col auto-cols-[21%] gap-3 p-3 snap-x">
           {ceo.map((tm) => <TeamMember team={tm}/>)}
@@ -25,7 +25,7 @@ const {tipo} = Astro.props;
 { tipo === 'ing' && 
 <div id="y-axis-2">
   <div id="sticky-div" class="overflow-hidden">
-    <h1 class="text-6xl font-bold text-center m-10 md:my-[12%]">Ingenieros de Software</h1>
+    <h1 class="text-6xl font-bold text-center m-10">Ingenieros de Software</h1>
       <div id="x-axis-2" class="relative w-full">
         <div id="ingenieros" class="w-[250%] md:w-[100%] grid grid-flow-col auto-cols-[21%] gap-3 p-3 snap-x">
           {ing.map((tm) => <TeamMember team={tm}/>)}

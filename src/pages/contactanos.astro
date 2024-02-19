@@ -1,15 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Background from '../assets/videos/Worldwebmsjs.mp4';
+import Formulario from '../sections/Formulario.astro';
 ---
 
 <Layout title="Contáctanos – Klevisoft">
   <section class="bg-fixed w-full bg-cover bg-center bg-no-repeat">
-    <div class="font-bold backdrop-blur-[2px] bg-blue/30 text-6xl flex justify-center">
-    <video src={Background} class="text-white text-center px-2 py-[30vh]" loop autoplay transition:persist>
-      <h1>Software Agroeasy para Etiquetado, Paletización y Embarques.</h1>
-    </video>
-    
-    <div/>
+    <Formulario />
   </section>
 </Layout>
