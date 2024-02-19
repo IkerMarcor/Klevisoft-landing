@@ -4,9 +4,12 @@ import Background from '../assets/videos/Worldwebmsjs.mp4';
 ---
 
 <Layout title="Contáctanos – Klevisoft">
-  <section class="flex items-center bg-gradient-to-r from-cyan to-blue">
-    <video src={Background} style="width: 1920px; height: 1080px;" preload="true" controls="" autoplay="" transition:persist>
-      <source src={Background} type="video/mp4"/>
+  <section class="bg-fixed w-full bg-cover bg-center bg-no-repeat">
+    <div class="font-bold backdrop-blur-[2px] bg-blue/30 text-6xl flex justify-center">
+    <video src={Background} class="text-white text-center px-2 py-[30vh]" loop autoplay transition:persist>
+      <h1>Software Agroeasy para Etiquetado, Paletización y Embarques.</h1>
     </video>
+    
+    <div/>
   </section>
 </Layout>
