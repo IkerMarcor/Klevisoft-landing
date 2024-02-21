@@ -11,6 +11,7 @@ export default {
 				'cyan':'#40a6ef',
 				'dark-cyan':'#2d8fd5',
 				'green': '#16C55E',
+				'dark-green': '#14532d',
 			},
 			backgroundImage: {
 				'klevi-1': "url('/src/assets/images/background-1.png')",

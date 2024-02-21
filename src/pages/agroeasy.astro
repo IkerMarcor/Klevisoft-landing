@@ -1,6 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Background from '../components/Background.astro';
+import Section1 from '../components/Section-1.astro';
+import Acarreo from '../assets/images/agro-acarreo.png';
+import Embarque from '../assets/images/agro-embarque.png';
+import Etiquetas from '../assets/images/agro-etiquetas.png';
+import Material from '../assets/images/agro-material.png';
+import Ordenes from '../assets/images/agro-ordenes.png';
 ---
 
 <Layout title="Agroeasy – Klevisoft">
@@ -9,7 +15,50 @@ import Background from '../components/Background.astro';
     style="text-white text-center px-2 py-[30vh]"
     bg="bg-agroeasy" 
   />
-  <div class="bg-blue p-[100px]">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas vero fuga beatae corrupti voluptatibus illum dolore doloribus fugiat reprehenderit magni quam, atque ullam accusantium modi laboriosam repudiandae amet nesciunt cum?</p>
-  </div>
+  <section class="flex flex-col items-center bg-white">
+    <div class="text-center py-[12vh] px-10 md:px-[20vw] flex flex-col space-y-8">
+      <h1 class="font-bold text-4xl sm:text-6xl">
+          <span class="text-dark-green">Convergencia Innovadora: Fusionando Experiencia Agrícola y Tecnológica para Soluciones Eficientes</span>
+      </h1>
+      <p class="text-left text-xl text-gray">
+        Al combinar la experiencia profunda en las necesidades del agricultor proveniente del equipo de dirección con las habilidades tecnológicas avanzados de los programadores jóvenes, tenemos la capacidad de desarrollar soluciones innovadoras y altamente relevantes para la industria agrícola.</p>
+    </div>
+</section>
+  <section class="bg-gradient-to-r from-green to-dark-green py-[12vh] px-10 md:px-[20vw] text-white text-2xl">
+    <p>Esta combinación única de conocimientos y perspectivas puede conducir a un ciclo de desarrollo muy eficiente, donde la comprensión profunda del sector agrícola se fusiona con las últimas tecnologías para crear soluciones prácticas y avanzadas. Aseguramos de que haya una comunicación fluida y colaboración entre estos dos grupos es clave para desbloquear el máximo potencial y garantizar que las soluciones sean verdaderamente efectivas y adoptadas por los agricultores.</p>
+  </section>
+  <section class="py-[12vh] px-10 md:px-[20vw]">
+    <h1 class="font-bold text-4xl sm:text-6xl text-center">
+      <span class="text-dark-green">Conoce los Procesos del Sistema</span>
+    </h1>
+    <div class="container justify-evenly grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 flex space-x-5 text-center">
+       <div>
+        <img src={Acarreo.src} class="hover:-translate-y-6 duration-500 ease-in-out rounded-box object-cover aspect-[16/12] shadow-xl rounded-lg my-5" />
+        <p class="text-dark-blue text-3xl font-bold">Acarreos de campos</p>
+       </div>
+       <div>
+        <img src={Etiquetas.src} class="hover:-translate-y-6 duration-500 ease-in-out rounded-box object-cover aspect-[16/12] shadow-xl rounded-lg my-5" />
+        <p class="text-dark-blue text-3xl font-bold">Elaboración de etiquetas</p>
+       </div>
+       <div>
+        <img src={Ordenes.src} class="hover:-translate-y-6 duration-500 ease-in-out rounded-box object-cover aspect-[16/12] shadow-xl rounded-lg my-5" />
+        <p class="text-dark-blue text-3xl font-bold">Ordenes de embarques</p>
+       </div>
+       <div>
+        <img src={Embarque.src} class="hover:-translate-y-6 duration-500 ease-in-out rounded-box object-cover aspect-[16/12] shadow-xl rounded-lg my-5" />
+        <p class="text-dark-blue text-3xl font-bold">Preparación de embarque</p>
+       </div>
+       <div>
+        <img src={Material.src} class="hover:-translate-y-6 duration-500 ease-in-out rounded-box object-cover aspect-[16/12] shadow-xl rounded-lg my-5" />
+        <p class="text-dark-blue text-3xl font-bold">Transacciones de material</p>
+       </div>
+    </div>
+  </section>
+  <Section1
+    Atitle="Optimiza tus exportaciones agrícolas hoy mismo con Agroeasy. ¡Haz click para descubrir más!"
+    Btitle="Contáctanos"
+    bg="bg-gradient-to-r from-green to-dark-green text-white"
+    style="shadow-md rounded-lg px-8 py-5 text-xl bg-white text-dark-blue hover:border hover:border-white hover:bg-green hover:text-white hover:shadow-lg transition-colors cursor-pointer duration-300"
+    href="/contactanos"
+  />
 </Layout>
